@@ -30,7 +30,6 @@ h1 {
   padding: 10px 10px;
 }
 .card__text {
-  font-size: 1.25rem;
   padding: 0 10px;
   border-bottom: 1px solid rgba(0,0,0,0.1);
   display: flex;
@@ -61,6 +60,9 @@ h1 {
   width: 100px;
   margin: 0 auto;
 }
+.card__text p {
+  padding: 0 10px;
+}
 .time__total, .time__lap {
   border-bottom: 1px solid rgba(0,0,0,0.3);
   width: 100px;
@@ -69,6 +71,9 @@ h1 {
 .time__lap {
   font-size: 1rem;
   padding-top: 10px;
+}
+.card__text p, .card__text span {
+  font-size: 1.25rem!important;
 }
 
 /* Scrollbar  */
@@ -83,13 +88,6 @@ h1 {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
-}
-
-@media only screen and (max-width: 450px) {
-  .container {
-    width: auto;
-    margin: 0 auto;
-  }
 }
 .card__text {
   position: relative;
@@ -110,7 +108,29 @@ h1 {
   }
   100% {
       opacity: 1;
-      height: 66.6px;
+      height: 61.6px;
       transform: translateY(0px);
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .container {
+    width: auto;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 450px) {
+
+  @keyframes slide-up {
+    0% {
+        opacity: 0;
+        height: 0px;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        height: 87.2px;
+        transform: translateY(0px);
+    }
   }
 }
