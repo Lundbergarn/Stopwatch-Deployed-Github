@@ -14,11 +14,13 @@ const Clock = () => {
   }
 
   function resetTimer() {
-    setTime('0.00');
-    setLap(0);
-    setLaps([]);
-    setIsActive(false);
-    setSplitValues([]);
+    if (!isActive) {
+      setTime('0.00');
+      setLap(0);
+      setLaps([]);
+      setIsActive(false);
+      setSplitValues([]);
+    }
   }
 
   function splitTimer() {
@@ -81,14 +83,10 @@ const Clock = () => {
         ></Button>
 
         <Button
-          title="Reset"
-          click={resetTimer}
+          title={isActive ? 'Split' : 'Reset'}
+          click={isActive ? splitTimer : resetTimer}
         ></Button>
 
-        <Button
-          title="Split"
-          click={splitTimer}
-        ></Button>
       </div>
 
       <section>
